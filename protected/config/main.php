@@ -36,6 +36,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            'class' => 'WebUser',
 		),
 
 		// uncomment the following to enable URLs in path-format
@@ -49,7 +50,6 @@ return array(
 			),
 		),
         */
-
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),

@@ -2,10 +2,11 @@ CREATE TABLE tbl_user (
     id SERIAL PRIMARY KEY,
     username VARCHAR(128) NOT NULL,
     password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
+    email VARCHAR(128) NOT NULL,
+    role VARCHAR(32) NULL
 );
 
-INSERT INTO tbl_user (username, password, email) VALUES ('test1', 'pass1', 'test1@example.com');
+INSERT INTO tbl_user (username, password, email, role) VALUES ('test0', 'pass0', 'admin@example.com', 'admin');
 INSERT INTO tbl_user (username, password, email) VALUES ('test2', 'pass2', 'test2@example.com');
 INSERT INTO tbl_user (username, password, email) VALUES ('test3', 'pass3', 'test3@example.com');
 INSERT INTO tbl_user (username, password, email) VALUES ('test4', 'pass4', 'test4@example.com');
@@ -28,3 +29,5 @@ INSERT INTO tbl_user (username, password, email) VALUES ('test20', 'pass20', 'te
 INSERT INTO tbl_user (username, password, email) VALUES ('test21', 'pass21', 'test21@example.com');
 
 SELECT * FROM tbl_user;
+
+DROP TABLE tbl_user;

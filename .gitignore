@@ -1,4 +1,4 @@
-.ideda/
-protected/runtime
-protected/vendor
+.idea/
+protected/runtime/
+protected/vendor/
 

@@ -8,6 +8,7 @@
  * @property string $username
  * @property string $password
  * @property string $email
+ * @property string $role
  */
 class User extends CActiveRecord
 {
@@ -97,4 +98,17 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; // Assuming 'role' is a field in your User table
+    }
+
+    public function validatePassword($password)
+    {
+        // Assuming passwords are stored as plain text
+        // Replace this with your actual password validation logic
+        return $this->password === $password;
+    }
+
 }
