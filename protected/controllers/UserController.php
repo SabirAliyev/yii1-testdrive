@@ -35,11 +35,11 @@ class UserController extends Controller
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow', // allow admin only to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+                'expression'=>'Yii::app()->user->isAdmin()',
 			),
-            array('allow', // assuming we have an isAdmin() method
+            array('allow', // allow admin only to se Users List
                 'actions'=>array('index'),
                 'expression'=>'Yii::app()->user->isAdmin()',
             ),
