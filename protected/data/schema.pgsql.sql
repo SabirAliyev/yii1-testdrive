@@ -1,3 +1,5 @@
+-- User
+
 CREATE TABLE tbl_user (
     id SERIAL PRIMARY KEY,
     username VARCHAR(128) NOT NULL,
@@ -28,11 +30,14 @@ INSERT INTO tbl_user (username, password, email) VALUES ('test19', 'pass19', 'te
 INSERT INTO tbl_user (username, password, email) VALUES ('test20', 'pass20', 'test20@example.com');
 INSERT INTO tbl_user (username, password, email) VALUES ('test21', 'pass21', 'test21@example.com');
 
+-- Task
+
 CREATE TABLE tbl_task (
     id SERIAL PRIMARY KEY,
     title VARCHAR(128) NOT NULL,
     details TEXT NOT NULL,
     completed BOOLEAN DEFAULT false,
-    userId INT,
+    userId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES tbl_user(id) ON DELETE CASCADE
-)
+);
+

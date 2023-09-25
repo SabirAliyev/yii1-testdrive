@@ -99,12 +99,18 @@ class User extends CActiveRecord
 		return parent::model($className);
 	}
 
-    public function isAdmin()
+    public function getId(): int
     {
-        return $this->role === 'admin'; // Assuming 'role' is a field in your User table
+        return $this->id;
     }
 
-    public function validatePassword($password)
+    public function isAdmin(): bool
+    {
+        // Assuming 'role' is a field in your User table.
+        return $this->role === 'admin';
+    }
+
+    public function validatePassword($password): bool
     {
         // Assuming passwords are stored as plain text
         // Replace this with your actual password validation logic

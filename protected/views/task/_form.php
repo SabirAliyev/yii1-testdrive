@@ -1,6 +1,7 @@
 <?php
 /* @var $this TaskController */
 /* @var $model Task */
+/* @var $user User */
 /* @var $form CActiveForm */
 ?>
 
@@ -38,10 +39,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'userid'); ?>
-		<?php echo $form->textField($model,'userid'); ?>
-		<?php echo $form->error($model,'userid'); ?>
-	</div>
+        <?php $user = Yii::app()->user; ?>
+        <?php echo $form->hiddenField($model, 'userId', array('value' => $user->getId())); ?>
+    </div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

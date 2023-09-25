@@ -31,7 +31,7 @@ class Task extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, details', 'required'),
+			array('title, details, userid', 'required'),
 			array('userid', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
 			array('completed', 'safe'),
