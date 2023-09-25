@@ -63,6 +63,7 @@ class TaskController extends Controller
 	public function actionCreate()
 	{
 		$model=new Task;
+        $model->userid = Yii::app()->user->id;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -122,7 +123,14 @@ class TaskController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Task');
+        $userId = Yii::app()->user->id;
+        $criteria = new CDbCriteria();
+        $criteria->condition = 'userId=:userId';
+        $criteria->params = array(':userId' => $userId);
+
+        // Tasks filter criteria used here (show task of current user only).
+		$dataProvider=new CActiveDataProvider('Task', array('criteria'=>$criteria));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

@@ -39,8 +39,8 @@
 	</div>
 
 	<div class="row">
-        <?php $user = Yii::app()->user; ?>
-        <?php echo $form->hiddenField($model, 'userId', array('value' => $user->getId())); ?>
+        <?php $userId = Yii::app()->user->Id; ?>
+        <?php echo $form->hiddenField($model, 'userId', array('value' => $userId)); ?>
     </div>
 
 	<div class="row buttons">

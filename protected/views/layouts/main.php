@@ -29,23 +29,17 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
+                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Tasks', 'url'=>array('task/index')),
+                array('label'=>'User List', 'url'=>array('/user/index'), 'visible'=>Yii::app()->user->isAdmin()),
 			),
 		)); ?>
 
-        <div style="margin-left: 20px">
-            <?php if(Yii::app()->user->isAdmin()): ?>
-                <li><?php echo CHtml::link('User List', array('/user/index')); ?></li>
-            <?php endif; ?>
-        </div>
-        
     </div><!-- mainmenu -->
-
-
 
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(

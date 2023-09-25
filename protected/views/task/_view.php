@@ -5,7 +5,7 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Number')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
@@ -21,9 +21,8 @@
 	<?php echo CHtml::encode($data->completed); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('userid')); ?>:</b>
-	<?php echo CHtml::encode($data->userid); ?>
-	<br />
-
+    <b style="display:none;"><?php echo CHtml::encode($data->getAttributeLabel('userid')); ?>:</b>
+    <span style="display:none;"><?php echo CHtml::encode($data->userid); ?></span>
+    <br />
 
 </div>
