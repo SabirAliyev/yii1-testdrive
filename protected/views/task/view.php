@@ -25,6 +25,5 @@ $this->menu=array(
 		'title',
 		'details',
 		'completed',
-		'userid',
 	),
 )); ?>
